@@ -1,0 +1,234 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>eBite — Booryajith chuốc say rượu Nguyên Phương Anh</title>
+  <style>
+    :root{
+      --bg:#0f1724; /* dark night */
+      --card:#0b1220;
+      --accent:#ff6b6b; /* wine red */
+      --glass:#e8f1ff;
+      --text:#e6eef8;
+    }
+    *{box-sizing:border-box}
+    body{margin:0;font-family:Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;color:var(--text);background:url('./booryajith\ chuôc\ ay\ ruọu\ nguyên\ phuong\ anh.png');height:100vh;display:flex;align-items:center;justify-content:center}
+
+    .stage{width:920px;max-width:94vw;background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent);border-radius:18px;padding:28px;box-shadow:0 20px 50px rgba(2,6,23,0.7);position:relative;overflow:hidden}
+
+    header{display:flex;gap:16px;align-items:center}
+    .logo{width:64px;height:64px;border-radius:12px;background:linear-gradient(135deg,#ff9aa2,#ff6b6b);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:22px;color:white;box-shadow:0 6px 18px rgba(255,107,107,0.12)}
+    h1{font-size:20px;margin:0}
+    p.lead{margin:2px 0 0 0;opacity:0.85;font-size:13px}
+
+    .content{display:flex;gap:24px;margin-top:18px}
+    .scene{flex:1;background:linear-gradient(180deg, rgba(255,255,255,0.01), transparent);border-radius:12px;padding:18px;position:relative;min-height:360px;display:flex;align-items:center;justify-content:center;overflow:hidden}
+
+    /* table */
+    .table{position:absolute;bottom:36px;left:50%;transform:translateX(-50%);width:80%;height:90px;background:linear-gradient(180deg,#0e1a2a,#08101a);border-radius:12px;box-shadow:0 8px 30px rgba(3,7,18,0.6);display:flex;align-items:center;justify-content:center}
+    .bottle{width:64px;height:120px;border-radius:8px;background:linear-gradient(180deg,#084c20,#073816);position:absolute;left:22%;bottom:110px;display:flex;align-items:center;justify-content:center;color:#cfead6;font-weight:700}
+    .bottle::after{content:'Bo';font-size:22px}
+    .glass{width:48px;height:48px;border-radius:6px;background:linear-gradient(180deg,#fff6f6,#ffdee3);position:absolute;left:38%;bottom:142px;display:flex;align-items:center;justify-content:center}
+
+    /* characters */
+    .chars{display:flex;gap:32px;align-items:flex-end;z-index:5}
+    .char{width:160px;text-align:center}
+    .avatar{width:120px;height:120px;margin:0 auto;border-radius:20px;background:linear-gradient(135deg,#243447,#2b3f55);display:flex;align-items:center;justify-content:center;color:white;font-size:36px;box-shadow:0 12px 30px rgba(2,6,23,0.6)}
+    .name{margin-top:10px;font-weight:600}
+    .role{font-size:13px;opacity:0.75}
+
+    /* animations */
+    .wave{animation:wave 1.6s infinite ease-in-out}
+    @keyframes wave{0%{transform:translateY(0)}50%{transform:translateY(-8px)}100%{transform:translateY(0)}}
+
+    /* dizzy effect */
+    .dizzy{animation:dizzy 2s linear infinite}
+    @keyframes dizzy{0%{transform:rotate(0deg) translateY(0)}25%{transform:rotate(5deg) translateY(-3px)}50%{transform:rotate(-5deg) translateY(0)}75%{transform:rotate(5deg) translateY(3px)}100%{transform:rotate(0deg) translateY(0)}}
+
+    /* floating hearts/stars */
+    .float-wrap{position:absolute;top:8px;left:6px;right:6px;height:100%;pointer-events:none}
+    .float{position:absolute;font-size:20px;opacity:0;transform:translateY(0);animation:floatUp 3s linear forwards}
+    @keyframes floatUp{0%{opacity:0;transform:translateY(20px) scale(0.6)}10%{opacity:1}100%{opacity:0;transform:translateY(-140px) scale(1.2)}}
+
+    /* button panel */
+    .panel{width:320px;background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent);border-radius:12px;padding:16px;display:flex;flex-direction:column;gap:12px}
+    .btn{padding:12px 14px;border-radius:10px;border:0;cursor:pointer;font-weight:700}
+    .btn--wine{background:linear-gradient(90deg,#ff8a8a,#ff4d6d);color:white}
+    .btn--reset{background:transparent;border:1px solid rgba(255,255,255,0.06);color:var(--text)}
+
+    .log{font-size:13px;min-height:74px;padding:10px;border-radius:8px;background:linear-gradient(180deg, rgba(255,255,255,0.01), transparent);border:1px solid rgba(255,255,255,0.02);overflow:auto}
+
+    /* confetti */
+    .confetti{position:absolute;inset:0;pointer-events:none}
+    .piece{position:absolute;width:10px;height:6px;opacity:0;transform:translateY(-20px) rotate(0);animation:pop 900ms ease-out forwards}
+    @keyframes pop{0%{opacity:1;transform:translateY(0) rotate(0) scale(1)}100%{opacity:1;transform:translateY(220px) rotate(720deg) scale(1)} }
+
+    footer{position:absolute;right:18px;bottom:12px;font-size:12px;opacity:0.6}
+
+    /* small responsive */
+    @media (max-width:860px){.content{flex-direction:column}.panel{width:100%}}
+  </style>
+</head>
+<body>
+  <div class="stage" role="application" aria-label="eBite Booryajith chuốc say rượu Nguyên Phương Anh">
+    <header>
+      <div class="logo">eB</div>
+      <div>
+        <h1>Booryajith chuốc say rượu Nguyên Phương Anh</h1>
+        <p class="lead">Một eBite nhỏ: cuộc vui có chút rượu, nhiều tiếng cười và hoạt ảnh dễ thương.</p>
+      </div>
+    </header>
+
+    <div class="content">
+      <div class="scene" id="scene">
+        <div class="float-wrap" id="floatWrap"></div>
+
+        <div class="chars" aria-hidden="false">
+          <div class="char" id="boory">
+            <div class="avatar wave" id="avatarBo">🍾</div>
+            <div class="name">Booryajith</div>
+            <div class="role">(nhân vật tinh nghịch)</div>
+          </div>
+
+          <div class="char" id="phuong">
+            <div class="avatar" id="avatarPh">😊</div>
+            <div class="name">Nguyên Phương Anh</div>
+            <div class="role">(bạn dễ thương)</div>
+          </div>
+        </div>
+
+        <div class="table" aria-hidden="true">
+          <div class="bottle" id="bottle"> </div>
+          <div class="glass" id="glass">🥂</div>
+        </div>
+
+        <div class="confetti" id="confettiArea"></div>
+
+        <footer>Tip: Nhấn <strong>Chuốc say</strong> để bắt đầu hiệu ứng.</footer>
+      </div>
+
+      <aside class="panel" aria-label="Bảng điều khiển">
+        <button class="btn btn--wine" id="pourBtn">🍷 Chuốc say</button>
+        <button class="btn btn--reset" id="resetBtn">🔄 Làm mới</button>
+
+        <div class="log" id="log">Trạng thái: yên tĩnh... (sẵn sàng)</div>
+      </aside>
+    </div>
+  </div>
+
+  <script>
+    const pourBtn = document.getElementById('pourBtn');
+    const resetBtn = document.getElementById('resetBtn');
+    const avatarPh = document.getElementById('avatarPh');
+    const floatWrap = document.getElementById('floatWrap');
+    const log = document.getElementById('log');
+    const confettiArea = document.getElementById('confettiArea');
+    const bottle = document.getElementById('bottle');
+    const glass = document.getElementById('glass');
+
+    // small helper
+    function writeLog(text){ log.innerHTML = text }
+
+    function spawnFloat(text, leftPct){
+      const el = document.createElement('div');
+      el.className = 'float';
+      el.style.left = (leftPct || (20 + Math.random()*60)) + '%';
+      el.style.top = (60 + Math.random()*20) + 'px';
+      el.textContent = text;
+      floatWrap.appendChild(el);
+      // remove after 3.4s
+      setTimeout(()=> el.remove(), 3400);
+    }
+
+    function burstConfetti(){
+      confettiArea.innerHTML = '';
+      const colors = ['#ff6b6b','#ffd166','#6bcB77','#7AD7F0','#c77dff'];
+      for(let i=0;i<28;i++){
+        const p = document.createElement('div');
+        p.className='piece';
+        p.style.left = Math.random()*100 + '%';
+        p.style.top = Math.random()*20 + '%';
+        p.style.background = colors[Math.floor(Math.random()*colors.length)];
+        p.style.animationDelay = (Math.random()*400) + 'ms';
+        p.style.transform = `translateY(-10px) rotate(${Math.random()*360}deg)`;
+        confettiArea.appendChild(p);
+      }
+      // clean up
+      setTimeout(()=> confettiArea.innerHTML = '', 1600);
+    }
+
+    let state = {drunk:false}
+
+    function doPour(){
+      if(state.drunk) return;
+      state.drunk = true;
+      writeLog('Booryajith mỉm cười và rót rượu... 🍷');
+
+      // bottle and glass animation (tiny wobble)
+      bottle.animate([{transform:'translateY(0)'},{transform:'translateY(-6px)'},{transform:'translateY(0)'}],{duration:700,iterations:3});
+      glass.animate([{transform:'translateY(0) rotate(0deg)'},{transform:'translateY(-8px) rotate(-12deg)'},{transform:'translateY(0) rotate(0deg)'}],{duration:800,iterations:2});
+
+      // float hearts and stars
+      spawnFloat('❤️', 48);
+      spawnFloat('✨', 60);
+      spawnFloat('🍷', 36);
+
+      // after a moment, Phương Anh becomes dizzy
+      setTimeout(()=>{
+        avatarPh.classList.add('dizzy');
+        avatarPh.textContent = '😵';
+        writeLog('Nguyên Phương Anh: lảo đảo... nhưng vẫn cười 😅');
+        // periodic floating emojis
+        spawnFloat('💫', 52);
+        spawnFloat('😵‍💫', 44);
+        burstConfetti();
+      }, 900);
+
+      // playful narrator text sequence
+      setTimeout(()=> writeLog('Booryajith: "Uống một chút cho vui nhé!"'), 1200);
+      setTimeout(()=> spawnFloat('🥳', 30), 1400);
+      setTimeout(()=> writeLog('Nguyên Phương Anh: "Ôi... đầu hơi quay.. nhưng vui!"'), 2400);
+
+      // slow sway effect added
+      setTimeout(()=>{
+        document.getElementById('scene').style.transition='transform 400ms ease-in-out';
+        document.getElementById('scene').style.transform='translateY(-6px)';
+      }, 1900);
+
+      // keep drunk state for a while, then settle
+      setTimeout(()=>{
+        writeLog('Nguyên Phương Anh cảm thấy ấm áp. 🎶 (nồng nàn nhưng an toàn)');
+      }, 4200);
+    }
+
+    function resetAll(){
+      state.drunk = false;
+      avatarPh.classList.remove('dizzy');
+      avatarPh.textContent = '😊';
+      floatWrap.innerHTML = '';
+      confettiArea.innerHTML = '';
+      document.getElementById('scene').style.transform='translateY(0)';
+      writeLog('Đã làm mới. Sẵn sàng cho lần sau!');
+    }
+
+    pourBtn.addEventListener('click', ()=>{
+      doPour();
+    });
+    resetBtn.addEventListener('click', ()=>{
+      resetAll();
+    });
+
+    // Small accessibility: typing 'p' triggers pour, 'r' resets
+    window.addEventListener('keydown', (e)=>{
+      if(e.key.toLowerCase()==='p') doPour();
+      if(e.key.toLowerCase()==='r') resetAll();
+    });
+
+    // subtle idle floats
+    setInterval(()=>{
+      spawnFloat(['✨','❤️','🍷','💫'][Math.floor(Math.random()*4)], 20+Math.random()*60)
+    }, 2200);
+  </script>
+</body>
+</html>
